@@ -10,4 +10,7 @@ add_subdirectory(libs)
 file(GLOB_RECURSE BOT_SRC ${PROJECT_SOURCE_DIR}/src/*.cpp)
 add_executable(pokerbot ${BOT_SRC})
 target_include_directories(pokerbot PUBLIC ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(pokerbot skeleton)
+
+set(CMAKE_C_COMPILER "clang")
+set(CMAKE_CXX_COMPILER "clang++")
+target_link_libraries(pokerbot skeleton ${PROJECT_SOURCE_DIR}/librust_skeleton.so)
